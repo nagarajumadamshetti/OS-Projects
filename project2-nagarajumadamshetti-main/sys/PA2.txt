@@ -1,0 +1,41 @@
+Write your answers to the following questions in a file named PA2Answers.txt (in simple text). Please place this file in the sys/ directory and turn it in, along with the above programming assignment.
+
+(10 pts) What are the advantages and disadvantages of each of the two scheduling policies? Also, give the advantages and disadvantages of the round-robin scheduling policy originally implemented in Xinu.
+Exponential Scheduler:
+
+Advantages:
+
+Fairness: The exponential scheduler ensures that each process gets a fair share of CPU time, regardless of its arrival time or burst time.
+Low Overhead: The scheduler requires minimal overhead, as it only needs to maintain a single timer and a simple queue data structure.
+Starvation Avoidance: The scheduler ensures that no process can be starved of CPU time indefinitely.
+
+Disadvantages:
+Higher priority processess are scheduled less number of times and  lowerpriority processes are scheduled more number of times. And slower than the default scheduler.
+
+Linux Scheduler:
+
+Advantages:
+
+It is scalable and can handle large number of processes effectively.
+It has better performance and responsiveness than other schedulers.
+
+Disadvantages:
+
+Complexity: Hard and Complex to implement.
+Potential for Starvation: The scheduler may allow some processes to starve others of CPU time if they have higher priorities or longer timeouts, potentially leading to unfairness.
+
+Round-Robin Scheduling Policy (Original Xinu Scheduler):
+
+Advantages:
+Simplicity, ensures that every process gets a fair share of CPU time.
+
+Disadvantages:
+All processes are treated equally and hence  lacks adaptability.
+
+(10 pts) Describe the way each of the schedulers affects the NULL process.
+
+Exponential Scheduler: Gives the NULL process a random amount of time to run before switching to another process.
+
+Linux Scheduler: Decides when the NULL process gets to run based on its "niceness" level and priority, which can make some processes run more often than others.
+
+Round Robin Scheduler: Allocates a fixed time slice to the NULL process, which runs until expired, then switches to the next process in the ready queue.
